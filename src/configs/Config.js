@@ -41,12 +41,14 @@ const Config = {
         Home: "//*",
         Login: "login",
         Articles: "articles",
+        Categories: "categories",
         Manage: "manage"
     },
     Links: {
         Home: "/",
         Login: "/login",
         Articles: "/articles",
+        Categories: "/categories",
         Manage: "/manage"
     },
     TokenKey: tokenKey,

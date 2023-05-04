@@ -64,6 +64,12 @@ class Navbar extends PureComponent {
                                     <p className="m-0">Articles</p>
                                 </Link>
                             </li>}
+                            {AdminRole(this.props.admin, Config.Routers.Categories) &&
+                            <li className="nav-item">
+                                <Link to={Config.Links.Categories} className="nav-link text-white">
+                                    <p className="m-0">Categories</p>
+                                </Link>
+                            </li>}
                             {IsEmpty(Config.Token) ? <>
                                 <li className="nav-item">
                                     <Link to={Config.Links.Login} className="nav-link text-white">
