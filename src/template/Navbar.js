@@ -49,25 +49,31 @@ class Navbar extends PureComponent {
                             {AdminRole(this.props.admin, Config.Routers.Home) &&
                             <li className="nav-item">
                                 <Link to={Config.Links.Home} className="nav-link text-white">
-                                    <p className="m-0">Home</p>
+                                    <p className="m-0">Beranda</p>
                                 </Link>
                             </li>}
                             {AdminRole(this.props.admin, Config.Routers.Manage) &&
                             <li className="nav-item">
                                 <Link to={Config.Links.Manage} className="nav-link text-white">
-                                    <p className="m-0">Manage Admin</p>
+                                    <p className="m-0">Data Pegawai</p>
+                                </Link>
+                            </li>}
+                            {AdminRole(this.props.admin, Config.Routers.Activities) &&
+                            <li className="nav-item">
+                                <Link to={Config.Links.Activities} className="nav-link text-white">
+                                    <p className="m-0">Aktifitas Pegawai</p>
                                 </Link>
                             </li>}
                             {AdminRole(this.props.admin, Config.Routers.Articles) &&
                             <li className="nav-item">
                                 <Link to={Config.Links.Articles} className="nav-link text-white">
-                                    <p className="m-0">Articles</p>
+                                    <p className="m-0">Artikel</p>
                                 </Link>
                             </li>}
                             {AdminRole(this.props.admin, Config.Routers.Categories) &&
                             <li className="nav-item">
                                 <Link to={Config.Links.Categories} className="nav-link text-white">
-                                    <p className="m-0">Categories</p>
+                                    <p className="m-0">Kategori</p>
                                 </Link>
                             </li>}
                             {IsEmpty(Config.Token) ? <>

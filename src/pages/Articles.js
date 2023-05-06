@@ -151,12 +151,12 @@ class Articles extends PureComponent {
         switch (type) {
             case Constants.ArticleType.HOME:
                 return "Beranda";
-            case Constants.ArticleType.PROGRAM:
-                return "Program";
-            case Constants.ArticleType.INFORMATION:
-                return "Informasi";
-            case Constants.ArticleType.SOP:
-                return "SOP";
+            case Constants.ArticleType.FACILITY:
+                return "Fasilitas";
+            case Constants.ArticleType.SERVICE:
+                return "Layanan";
+            case Constants.ArticleType.SCHEDULE:
+                return "Jadwal Bidan";
             default:
                 return "Unknown";
         }
@@ -299,9 +299,9 @@ class Articles extends PureComponent {
                                     >
                                         <option selected>Choose</option>
                                         <option value={Constants.ArticleType.HOME}>Beranda</option>
-                                        <option value={Constants.ArticleType.PROGRAM}>Program</option>
-                                        <option value={Constants.ArticleType.INFORMATION}>Informasi</option>
-                                        <option value={Constants.ArticleType.SOP}>SOP</option>
+                                        <option value={Constants.ArticleType.FACILITY}>Fasilitas</option>
+                                        <option value={Constants.ArticleType.SERVICE}>Layanan</option>
+                                        <option value={Constants.ArticleType.SCHEDULE}>Jadwal Bidan</option>
                                     </select>
                                 </div>
                             </div>

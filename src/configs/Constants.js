@@ -7,9 +7,9 @@ const AdminType = {
 };
 const ArticleType = {
     HOME: 1,
-    PROGRAM: 2,
-    INFORMATION: 3,
-    SOP: 4
+    FACILITY: 2,
+    SERVICE: 3,
+    SCHEDULE: 4
 };
 const Constants = {
     AdminType: AdminType,

@@ -31,19 +31,23 @@ class Sidebar extends PureComponent {
                 </div>}
                 {AdminRole(this.props.admin, Config.Routers.Home) &&
                 <Link to={Config.Links.Home} className="nav-link px-4 py-2">
-                    <p className="m-0">Home</p>
+                    <p className="m-0">Beranda</p>
                 </Link>}
                 {AdminRole(this.props.admin, Config.Routers.Manage) &&
                 <Link to={Config.Links.Manage} className="nav-link px-4 py-2">
-                    <p className="m-0">Manage Admin</p>
+                    <p className="m-0">Data Pegawai</p>
+                </Link>}
+                {AdminRole(this.props.admin, Config.Routers.Activities) &&
+                <Link to={Config.Links.Activities} className="nav-link px-4 py-2">
+                    <p className="m-0">Aktifitas Pegawai</p>
                 </Link>}
                 {AdminRole(this.props.admin, Config.Routers.Articles) &&
                 <Link to={Config.Links.Articles} className="nav-link px-4 py-2">
-                    <p className="m-0">Articles</p>
+                    <p className="m-0">Artikel</p>
                 </Link>}
                 {AdminRole(this.props.admin, Config.Routers.Categories) &&
                 <Link to={Config.Links.Categories} className="nav-link px-4 py-2">
-                    <p className="m-0">Categories</p>
+                    <p className="m-0">Kategori</p>
                 </Link>}
                 <a href="javascript:void(0)" onClick={event => this.logout()} className="nav-link px-4 py-2">
                     <p className="m-0">Logout</p>
