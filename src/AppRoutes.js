@@ -11,6 +11,7 @@ import Categories from "./pages/Categories";
 import Activities from "./pages/Activities";
 import Users from "./pages/Users";
 import Medicines from "./pages/Medicines";
+import Visits from "./pages/Visits";
 
 class AppRoutes extends PureComponent {
     render() {
@@ -24,6 +25,7 @@ class AppRoutes extends PureComponent {
                     <Route path={Config.Routers.Activities} element={<RouteElement component={Activities} />} />
                     <Route path={Config.Routers.Users} element={<RouteElement component={Users} />} />
                     <Route path={Config.Routers.Medicines} element={<RouteElement component={Medicines} />} />
+                    <Route path={Config.Routers.Visits} element={<RouteElement component={Visits} />} />
                     <Route path={Config.Routers.Manage} element={<RouteElement component={Admin} />} />
                     <Route path={Config.Routers.NotFound} element={<RouteElement component={NotFound} />} />
                 </Routes>
