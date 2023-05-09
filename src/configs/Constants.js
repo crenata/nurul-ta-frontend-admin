@@ -15,10 +15,16 @@ const GenderType = {
     MALE: 1,
     FEMALE: 2
 };
+const MedicineType = {
+    TABLET: 1,
+    CAPSULE: 2,
+    SYRUP: 3
+};
 const Constants = {
     AdminType: AdminType,
     ArticleType: ArticleType,
-    GenderType: GenderType
+    GenderType: GenderType,
+    MedicineType: MedicineType
 };
 
 export default Constants;

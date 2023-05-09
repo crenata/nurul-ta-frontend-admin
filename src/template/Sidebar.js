@@ -55,6 +55,10 @@ class Sidebar extends PureComponent {
                         <Link to={Config.Links.Users} className="nav-link px-4 py-2">
                             <p className="m-0">Pasien</p>
                         </Link>}
+                        {AdminRole(context.admin, Config.Routers.Medicines) &&
+                        <Link to={Config.Links.Medicines} className="nav-link px-4 py-2">
+                            <p className="m-0">Obat</p>
+                        </Link>}
                         <a href="javascript:void(0)" onClick={event => this.logout()} className="nav-link px-4 py-2">
                             <p className="m-0">Logout</p>
                         </a>

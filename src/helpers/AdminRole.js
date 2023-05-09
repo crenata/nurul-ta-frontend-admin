@@ -19,6 +19,8 @@ const AdminRole = (admin, menu) => {
             switch (menu) {
                 case Config.Routers.Home:
                     return true;
+                case Config.Routers.Medicines:
+                    return true;
                 default:
                     return false;
             }

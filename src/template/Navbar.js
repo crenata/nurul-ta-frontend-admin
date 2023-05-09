@@ -84,6 +84,12 @@ class Navbar extends PureComponent {
                                             <p className="m-0">Pasien</p>
                                         </Link>
                                     </li>}
+                                    {AdminRole(context.admin, Config.Routers.Medicines) &&
+                                    <li className="nav-item">
+                                        <Link to={Config.Links.Medicines} className="nav-link text-white">
+                                            <p className="m-0">Obat</p>
+                                        </Link>
+                                    </li>}
                                     {IsEmpty(Config.Token) ? <>
                                         <li className="nav-item">
                                             <Link to={Config.Links.Login} className="nav-link text-white">

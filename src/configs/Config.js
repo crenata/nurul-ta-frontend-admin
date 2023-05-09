@@ -44,6 +44,7 @@ const Config = {
         Categories: "categories",
         Activities: "activities",
         Users: "users",
+        Medicines: "medicines",
         Manage: "manage"
     },
     Links: {
@@ -53,6 +54,7 @@ const Config = {
         Categories: "/categories",
         Activities: "/activities",
         Users: "/users",
+        Medicines: "/medicines",
         Manage: "/manage"
     },
     TokenKey: tokenKey,
