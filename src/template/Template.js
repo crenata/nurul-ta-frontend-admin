@@ -19,24 +19,12 @@ class Template extends PureComponent {
     }
 
     componentDidMount() {
-        if (!IsEmpty(Config.Token)) this.getData();
-
         setTimeout(() => {
             const self = this;
             document.getElementsByClassName("app-content")[0].onscroll = function (e) {
                 if (this.scrollTop > (this.scrollHeight - this.offsetHeight - 50) && !IsEmpty(self.props.onScroll)) self.props.onScroll();
             };
         }, 1000);
-    }
-
-    getData() {
-        Config.Axios.get("auth/self").then(response => {
-            if (response) {
-                this.setState({
-                    admin: response.data.data
-                });
-            }
-        });
     }
 
     render() {
@@ -51,7 +39,7 @@ class Template extends PureComponent {
                         >
                             {context.loading ? <Loading /> : <>
                                 {!window.location.pathname.includes(Config.Links.Login) &&
-                                <Navbar admin={this.state.admin} />}
+                                <Navbar />}
                                 <div className={!window.location.pathname.includes(Config.Links.Login) && `app-container`}>
                                     {!window.location.pathname.includes(Config.Links.Login) &&
                                     <Sidebar admin={this.state.admin} />}

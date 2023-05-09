@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min";
 import "react-toastify/dist/ReactToastify.min.css";
 import {ToastContainer} from "react-toastify";
+import IsEmpty from "./helpers/IsEmpty";
 
 class App extends PureComponent {
     constructor(props) {
@@ -14,13 +15,26 @@ class App extends PureComponent {
         this.state = {
             admin_token: Config.Token,
             user_token: Config.UserToken,
-            loading: true
+            loading: true,
+            admin: null
         };
     }
 
     componentDidMount() {
+        if (!IsEmpty(Config.Token)) this.getData();
+
         this.setState({
             loading: false
+        });
+    }
+
+    getData() {
+        Config.Axios.get("auth/self").then(response => {
+            if (response) {
+                this.setState({
+                    admin: response.data.data
+                });
+            }
         });
     }
 

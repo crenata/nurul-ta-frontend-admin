@@ -11,9 +11,14 @@ const ArticleType = {
     SERVICE: 3,
     SCHEDULE: 4
 };
+const GenderType = {
+    MALE: 1,
+    FEMALE: 2
+};
 const Constants = {
     AdminType: AdminType,
-    ArticleType: ArticleType
+    ArticleType: ArticleType,
+    GenderType: GenderType
 };
 
 export default Constants;
