@@ -20,11 +20,16 @@ const MedicineType = {
     CAPSULE: 2,
     SYRUP: 3
 };
+const MaritalStatus = {
+    SINGLE: 1,
+    MARRIED: 2
+};
 const Constants = {
     AdminType: AdminType,
     ArticleType: ArticleType,
     GenderType: GenderType,
-    MedicineType: MedicineType
+    MedicineType: MedicineType,
+    MaritalStatus: MaritalStatus
 };
 
 export default Constants;

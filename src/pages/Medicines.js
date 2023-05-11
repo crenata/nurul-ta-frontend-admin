@@ -15,8 +15,8 @@ class Medicines extends PureComponent {
             name: "",
             type: "",
             expired: "",
-            price: 0,
-            quantity: 0
+            price: "",
+            quantity: ""
         };
         this.state = {
             medicines: [],
