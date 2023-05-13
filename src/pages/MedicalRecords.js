@@ -174,6 +174,33 @@ class MedicalRecords extends PureComponent {
         }
     }
 
+    generate() {
+        if (!this.state.isLoading) {
+            this.setState({
+                isLoading: true
+            }, () => {
+                Config.Axios.get(`medical-record/generate/${this.state.user.id}/0`, {
+                    responseType: "blob"
+                }).then(response => {
+                    if (response) {
+                        const href = URL.createObjectURL(response.data);
+                        const link = document.createElement("a");
+                        link.href = href;
+                        link.setAttribute("download", "Medical Record.pdf");
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        URL.revokeObjectURL(href);
+                    }
+                }).finally(() => {
+                    this.setState({
+                        isLoading: false
+                    });
+                });
+            });
+        }
+    }
+
     reset() {
         this.setState({
             ...this.initialMedicalRecord
@@ -282,16 +309,22 @@ class MedicalRecords extends PureComponent {
                                 <div className="modal-body">
                                     <div className="d-flex align-items-center justify-content-between">
                                         <h4 className="m-0">{this.state.user.name}</h4>
-                                        {(this.isAdmin() || this.isMidwafe()) &&
-                                        <button
-                                            className="btn btn-dark"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#medical-record-modal"
-                                            onClick={event => {
-                                                this.reset();
-                                                this.setValue("isEdit", false);
-                                            }}
-                                        >Add</button>}
+                                        <div className="">
+                                            <button
+                                                className="btn btn-dark"
+                                                onClick={event => this.generate()}
+                                            >Generate</button>
+                                            {(this.isAdmin() || this.isMidwafe()) &&
+                                            <button
+                                                className="btn btn-dark ms-3"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#medical-record-modal"
+                                                onClick={event => {
+                                                    this.reset();
+                                                    this.setValue("isEdit", false);
+                                                }}
+                                            >Add</button>}
+                                        </div>
                                     </div>
                                     <div className="row mt-3">
                                         <div className="col-12 col-md-6">

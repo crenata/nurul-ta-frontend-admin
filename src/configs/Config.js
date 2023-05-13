@@ -20,7 +20,7 @@ const interceptorsError = (error) => {
             toast.warn(error.response.data.message);
         }
     } else {
-        toast.error("Whoops, something went wrong!");
+        if (!error.config.url.includes("generate")) toast.error("Whoops, something went wrong!");
     }
 };
 const instanceAxios = () => {

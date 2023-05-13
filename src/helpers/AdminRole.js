@@ -34,6 +34,8 @@ const AdminRole = (admin, menu) => {
                     return true;
                 case Config.Routers.Visits:
                     return true;
+                case Config.Routers.MedicalRecords:
+                    return true;
                 default:
                     return false;
             }
