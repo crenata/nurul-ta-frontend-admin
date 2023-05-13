@@ -119,7 +119,7 @@ class MedicalRecords extends PureComponent {
             }, () => {
                 Config.Axios.post(`medical-record/${this.state.isEdit ? "edit" : "add"}`, {
                     id: this.state.id,
-                    user_id: this.state.user_id,
+                    user_id: this.state.user.id,
                     category_id: this.state.category_id,
                     weight: this.state.weight,
                     height: this.state.height,
