@@ -13,6 +13,7 @@ import Users from "./pages/Users";
 import Medicines from "./pages/Medicines";
 import Visits from "./pages/Visits";
 import MedicalRecords from "./pages/MedicalRecords";
+import Receipts from "./pages/Receipts";
 
 class AppRoutes extends PureComponent {
     render() {
@@ -28,6 +29,7 @@ class AppRoutes extends PureComponent {
                     <Route path={Config.Routers.Medicines} element={<RouteElement component={Medicines} />} />
                     <Route path={Config.Routers.Visits} element={<RouteElement component={Visits} />} />
                     <Route path={Config.Routers.MedicalRecords} element={<RouteElement component={MedicalRecords} />} />
+                    <Route path={Config.Routers.Receipts} element={<RouteElement component={Receipts} />} />
                     <Route path={Config.Routers.Manage} element={<RouteElement component={Admin} />} />
                     <Route path={Config.Routers.NotFound} element={<RouteElement component={NotFound} />} />
                 </Routes>

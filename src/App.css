@@ -67,6 +67,10 @@
     width: 100%;
 }
 
+.border-top-dashed {
+    border-top: 1px dashed #DEE2E6;
+}
+
 @media (min-width: 576px) {
     .auth-form {
         width: 40%;

@@ -14,6 +14,8 @@ const AdminRole = (admin, menu) => {
                     return true;
                 case Config.Routers.MedicalRecords:
                     return true;
+                case Config.Routers.Receipts:
+                    return true;
                 default:
                     return false;
             }
@@ -22,6 +24,8 @@ const AdminRole = (admin, menu) => {
                 case Config.Routers.Home:
                     return true;
                 case Config.Routers.Medicines:
+                    return true;
+                case Config.Routers.Receipts:
                     return true;
                 default:
                     return false;
@@ -42,6 +46,8 @@ const AdminRole = (admin, menu) => {
         case Constants.AdminType.CASHIER:
             switch (menu) {
                 case Config.Routers.Home:
+                    return true;
+                case Config.Routers.Receipts:
                     return true;
                 default:
                     return false;

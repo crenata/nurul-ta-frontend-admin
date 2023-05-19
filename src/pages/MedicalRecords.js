@@ -6,6 +6,7 @@ import Constants from "../configs/Constants";
 import Context from "../contexts/Context";
 import IsEmpty from "../helpers/IsEmpty";
 import moment from "moment";
+import Download from "../helpers/Download";
 
 class MedicalRecords extends PureComponent {
     constructor(props) {
@@ -183,14 +184,7 @@ class MedicalRecords extends PureComponent {
                     responseType: "blob"
                 }).then(response => {
                     if (response) {
-                        const href = URL.createObjectURL(response.data);
-                        const link = document.createElement("a");
-                        link.href = href;
-                        link.setAttribute("download", "Medical Record.pdf");
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                        URL.revokeObjectURL(href);
+                        Download(response.data, "Medical Record.pdf");
                     }
                 }).finally(() => {
                     this.setState({

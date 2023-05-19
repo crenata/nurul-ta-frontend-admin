@@ -47,6 +47,7 @@ const Config = {
         Medicines: "medicines",
         Visits: "visits",
         MedicalRecords: "medical-records",
+        Receipts: "receipts",
         Manage: "manage"
     },
     Links: {
@@ -59,6 +60,7 @@ const Config = {
         Medicines: "/medicines",
         Visits: "/visits",
         MedicalRecords: "/medical-records",
+        Receipts: "/receipts",
         Manage: "/manage"
     },
     TokenKey: tokenKey,
