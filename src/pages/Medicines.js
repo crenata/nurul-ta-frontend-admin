@@ -36,6 +36,10 @@ class Medicines extends PureComponent {
         return this.context.admin?.type === Constants.AdminType.ADMINISTRATOR;
     }
 
+    isPharmacist() {
+        return this.context.admin?.type === Constants.AdminType.PHARMACIST;
+    }
+
     getData(isReload = false) {
         if (!this.state.isLoading && !this.state.isLastPage) {
             this.setState({
@@ -77,7 +81,7 @@ class Medicines extends PureComponent {
             this.setState({
                 isLoading: true
             }, () => {
-                Config.Axios.post(`medicine/${this.state.isEdit ? "edit" : "add"}`, {
+                Config.Axios.post(`medicine/${this.state.isEdit ? (this.isPharmacist() ? "stock" : "edit") : "add"}`, {
                     id: this.state.id,
                     code: this.state.code,
                     name: this.state.name,
