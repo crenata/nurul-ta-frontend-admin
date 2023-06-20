@@ -4,13 +4,15 @@ import Config from "../configs/Config";
 import {toast} from "react-toastify";
 import IsEmpty from "../helpers/IsEmpty";
 import {Navigate} from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
 
 class Login extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            is_verified: false
         };
     }
 
@@ -21,15 +23,27 @@ class Login extends PureComponent {
     }
 
     login() {
-        Config.Axios.post("auth/login", this.state).then(response => {
-            if (response) {
-                toast.success("Logged in...");
-                localStorage.setItem(Config.TokenKey, response.data.data.token);
-                setTimeout(() => {
-                    window.location.href = Config.Links.Home;
-                }, 1000);
-            }
-        });
+        if (IsEmpty(this.state.email)) {
+            toast.warning("The email/username field is required.");
+            return;
+        }
+        if (IsEmpty(this.state.password)) {
+            toast.warning("The password field is required.");
+            return;
+        }
+        if (this.state.is_verified) {
+            Config.Axios.post("auth/login", this.state).then(response => {
+                if (response) {
+                    toast.success("Logged in...");
+                    localStorage.setItem(Config.TokenKey, response.data.data.token);
+                    setTimeout(() => {
+                        window.location.href = Config.Links.Home;
+                    }, 1000);
+                }
+            });
+        } else {
+            toast.warning("Isi captcha dulu bos...");
+        }
     }
 
     render() {
@@ -61,6 +75,12 @@ class Login extends PureComponent {
                                     placeholder="password"
                                     value={this.state.password}
                                     onChange={event => this.setValue("password", event.target.value)}
+                                />
+                            </div>
+                            <div className="mt-3 d-flex justify-content-center">
+                                <ReCAPTCHA
+                                    sitekey="6LfCBLQmAAAAABIm8zt0Yxn9zgqulRK4A8MU-fZH"
+                                    onChange={value => this.setValue("is_verified", true)}
                                 />
                             </div>
                             <div className="text-center mt-3">
