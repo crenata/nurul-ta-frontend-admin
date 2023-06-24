@@ -159,6 +159,8 @@ class Medicines extends PureComponent {
                 return "Kapsul";
             case Constants.MedicineType.SYRUP:
                 return "Sirup";
+            case Constants.MedicineType.EQUIPMENT:
+                return "Peralatan";
             default:
                 return "Unknown";
         }
@@ -296,6 +298,7 @@ class Medicines extends PureComponent {
                                             <option value={Constants.MedicineType.TABLET}>Tablet</option>
                                             <option value={Constants.MedicineType.CAPSULE}>Kapsul</option>
                                             <option value={Constants.MedicineType.SYRUP}>Sirup</option>
+                                            <option value={Constants.MedicineType.EQUIPMENT}>Peralatan</option>
                                         </select>
                                     </div>
                                     <div className="mt-3">

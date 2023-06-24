@@ -18,7 +18,8 @@ const GenderType = {
 const MedicineType = {
     TABLET: 1,
     CAPSULE: 2,
-    SYRUP: 3
+    SYRUP: 3,
+    EQUIPMENT: 4
 };
 const MaritalStatus = {
     SINGLE: 1,
