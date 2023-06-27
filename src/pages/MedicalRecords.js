@@ -251,13 +251,10 @@ class MedicalRecords extends PureComponent {
                         {this.state.medical_records.map(value => (
                             <div className="border rounded p-3 mt-3" key={value.id}>
                                 <div className="row">
-                                    <div className="col-12 col-md-3 d-flex align-items-center">
+                                    <div className="col-12 col-md-8 d-flex align-items-center">
                                         <p className="m-0">{value.name}</p>
                                     </div>
-                                    <div className="col-12 col-md-6 d-flex align-items-center">
-                                        <p className="m-0">{value.medical_record_number}</p>
-                                    </div>
-                                    <div className="col-12 col-md-3 d-flex align-items-center justify-content-end mt-3 mt-md-0">
+                                    <div className="col-12 col-md-4 d-flex align-items-center justify-content-end mt-3 mt-md-0">
                                         <button
                                             className="btn btn-dark"
                                             data-bs-toggle="modal"
@@ -322,12 +319,11 @@ class MedicalRecords extends PureComponent {
                                     </div>
                                     <div className="row mt-3">
                                         <div className="col-12 col-md-6">
-                                            <p className="m-0">Nomor Rekam Medis : {this.state.user.medical_record_number}</p>
                                             <p className="m-0">Tempat, Tanggal Lahir : {this.state.user.birthplace}, {moment(this.state.user.birthday).format("ll")}</p>
                                             <p className="m-0">Jenis Kelamin : {this.getGender(this.state.user.gender)}</p>
+                                            <p className="m-0">Wali : {this.state.user.guardian}</p>
                                         </div>
                                         <div className="col-12 col-md-6">
-                                            <p className="m-0">Wali : {this.state.user.guardian}</p>
                                             <p className="m-0">Tanggal Terdaftar : {moment(this.state.user.created_at).format("lll")}</p>
                                             <p className="m-0">Alamat : {this.state.user.address}</p>
                                         </div>

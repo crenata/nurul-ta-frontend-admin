@@ -198,16 +198,13 @@ class Visits extends PureComponent {
                         {this.state.visits.map(value => (
                             <div className="border rounded p-3 mt-3" key={value.id}>
                                 <div className="row">
-                                    <div className="col-12 col-md-2 d-flex align-items-center">
+                                    <div className="col-12 col-md-3 d-flex align-items-center">
                                         <p className="m-0">{value.user.name}</p>
-                                    </div>
-                                    <div className="col-12 col-md-2 d-flex align-items-center">
-                                        <p className="m-0">{value.user.medical_record_number}</p>
                                     </div>
                                     <div className="col-12 col-md-2 d-flex align-items-center">
                                         <p className="m-0">{value.category.name}</p>
                                     </div>
-                                    <div className="col-12 col-md-2 d-flex align-items-center">
+                                    <div className="col-12 col-md-3 d-flex align-items-center">
                                         <p className="m-0">{moment(value.date).format("lll")}</p>
                                     </div>
                                     <div className="col-12 col-md-2 d-flex align-items-center">

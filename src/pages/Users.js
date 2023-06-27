@@ -370,7 +370,7 @@ class Users extends PureComponent {
                                         onChange={event => this.setValue("identity_number", event.target.value)}
                                     />
                                 </div>
-                                <div className="mt-3">
+                                {/*<div className="mt-3">
                                     <label htmlFor="medical-record-number" className="form-label">Nomor Rekam Medis</label>
                                     <input
                                         type="text"
@@ -380,7 +380,7 @@ class Users extends PureComponent {
                                         value={this.state.medical_record_number}
                                         onChange={event => this.setValue("medical_record_number", event.target.value)}
                                     />
-                                </div>
+                                </div>*/}
                                 <div className="mt-3">
                                     <label htmlFor="guardian" className="form-label">Wali</label>
                                     <input
