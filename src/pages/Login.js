@@ -79,7 +79,7 @@ class Login extends PureComponent {
                             </div>
                             <div className="mt-3 d-flex justify-content-center">
                                 <ReCAPTCHA
-                                    sitekey="6LfCBLQmAAAAABIm8zt0Yxn9zgqulRK4A8MU-fZH"
+                                    sitekey="6LeFyLkmAAAAAFjVbUsPG4DCs-9izOhXvt1jJG13"
                                     onChange={value => this.setValue("is_verified", true)}
                                 />
                             </div>
