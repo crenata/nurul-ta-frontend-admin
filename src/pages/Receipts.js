@@ -656,7 +656,7 @@ class Receipts extends PureComponent {
                                                 <p className="m-0">{value.name}</p>
                                             </div>
                                             <div className="col-3">
-                                                <p className="m-0">{value.dose}</p>
+                                                <div dangerouslySetInnerHTML={{__html: value.dose}} />
                                             </div>
                                             <div className="col-2 text-end">
                                                 <p className="m-0">{new Intl.NumberFormat().format(value.quantity)}</p>
@@ -755,7 +755,7 @@ class Receipts extends PureComponent {
                                                     <p className="m-0">{value.name}</p>
                                                 </div>
                                                 <div className="col-3">
-                                                    <p className="m-0">{value.dose}</p>
+                                                    <div dangerouslySetInnerHTML={{__html: value.dose}} />
                                                 </div>
                                                 <div className="col-2 text-end">
                                                     <p className="m-0">{new Intl.NumberFormat().format(value.quantity)}</p>

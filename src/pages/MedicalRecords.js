@@ -367,15 +367,15 @@ class MedicalRecords extends PureComponent {
                                                             </div>
                                                             <div className="mt-3 pt-3 border-top">
                                                                 <p className="m-0">Riwayat Penyakit :</p>
-                                                                <p className="m-0">{value.disease_history}</p>
+                                                                <div dangerouslySetInnerHTML={{__html: value.disease_history}} />
                                                             </div>
                                                             <div className="mt-2">
                                                                 <p className="m-0">Keluhan :</p>
-                                                                <p className="m-0">{value.complaint}</p>
+                                                                <div dangerouslySetInnerHTML={{__html: value.complaint}} />
                                                             </div>
                                                             <div className="mt-2">
                                                                 <p className="m-0">Pengobatan Yang Diberikan :</p>
-                                                                <p className="m-0">{value.treatment_given}</p>
+                                                                <div dangerouslySetInnerHTML={{__html: value.treatment_given}} />
                                                             </div>
                                                             <div className="mt-2">
                                                                 <p className="m-0">Keterangan :</p>
