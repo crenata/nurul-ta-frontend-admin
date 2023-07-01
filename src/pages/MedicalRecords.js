@@ -7,6 +7,8 @@ import Context from "../contexts/Context";
 import IsEmpty from "../helpers/IsEmpty";
 import moment from "moment";
 import Download from "../helpers/Download";
+import {CKEditor} from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 class MedicalRecords extends PureComponent {
     constructor(props) {
@@ -517,46 +519,46 @@ class MedicalRecords extends PureComponent {
                                 </div>
                                 <div className="mt-3">
                                     <label htmlFor="disease-history" className="form-label">Riwayat Penyakit</label>
-                                    <textarea
-                                        rows="3"
-                                        className="form-control"
-                                        id="disease-history"
-                                        placeholder="Riwayat Penyakit"
-                                        value={this.state.disease_history}
-                                        onChange={event => this.setValue("disease_history", event.target.value)}
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={this.state.disease_history}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            this.setValue("disease_history", data);
+                                        }}
                                     />
                                 </div>
                                 <div className="mt-3">
                                     <label htmlFor="complaint" className="form-label">Keluhan</label>
-                                    <textarea
-                                        rows="3"
-                                        className="form-control"
-                                        id="complaint"
-                                        placeholder="Keluhan"
-                                        value={this.state.complaint}
-                                        onChange={event => this.setValue("complaint", event.target.value)}
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={this.state.complaint}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            this.setValue("complaint", data);
+                                        }}
                                     />
                                 </div>
                                 <div className="mt-3">
                                     <label htmlFor="treatment-given" className="form-label">Pengobatan Yang Diberikan</label>
-                                    <textarea
-                                        rows="3"
-                                        className="form-control"
-                                        id="treatment-given"
-                                        placeholder="Pengobatan Yang Diberikan"
-                                        value={this.state.treatment_given}
-                                        onChange={event => this.setValue("treatment_given", event.target.value)}
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={this.state.treatment_given}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            this.setValue("treatment_given", data);
+                                        }}
                                     />
                                 </div>
                                 <div className="mt-3">
                                     <label htmlFor="description" className="form-label">Keterangan</label>
-                                    <textarea
-                                        rows="3"
-                                        className="form-control"
-                                        id="description"
-                                        placeholder="Keterangan"
-                                        value={this.state.description}
-                                        onChange={event => this.setValue("description", event.target.value)}
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={this.state.description}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            this.setValue("description", data);
+                                        }}
                                     />
                                 </div>
                             </div>

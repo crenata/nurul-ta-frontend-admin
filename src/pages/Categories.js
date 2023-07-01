@@ -3,6 +3,8 @@ import Template from "../template/Template";
 import Config from "../configs/Config";
 import {toast} from "react-toastify";
 import TextTruncate from "../helpers/texts/TextTruncate";
+import {CKEditor} from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 class Categories extends PureComponent {
     constructor(props) {
@@ -234,13 +236,13 @@ class Categories extends PureComponent {
                                 </div>
                                 <div className="mt-3">
                                     <label htmlFor="description" className="form-label">Description</label>
-                                    <textarea
-                                        rows="4"
-                                        className="form-control"
-                                        id="description"
-                                        placeholder="Description"
-                                        value={this.state.description}
-                                        onChange={event => this.setValue("description", event.target.value)}
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={this.state.description}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            this.setValue("description", data);
+                                        }}
                                     />
                                 </div>
                             </div>

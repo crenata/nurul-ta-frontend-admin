@@ -7,6 +7,8 @@ import Context from "../contexts/Context";
 import moment from "moment";
 import IsEmpty from "../helpers/IsEmpty";
 import Download from "../helpers/Download";
+import {CKEditor} from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 class Receipts extends PureComponent {
     constructor(props) {
@@ -500,24 +502,24 @@ class Receipts extends PureComponent {
                                 </div>
                                 <div className="mt-3">
                                     <label htmlFor="complaint" className="form-label">Keluhan</label>
-                                    <textarea
-                                        rows="3"
-                                        className="form-control"
-                                        id="complaint"
-                                        placeholder="Keluhan"
-                                        value={this.state.complaint}
-                                        onChange={event => this.setValue("complaint", event.target.value)}
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={this.state.complaint}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            this.setValue("complaint", data);
+                                        }}
                                     />
                                 </div>
                                 <div className="mt-3">
                                     <label htmlFor="description" className="form-label">Keterangan</label>
-                                    <textarea
-                                        rows="3"
-                                        className="form-control"
-                                        id="description"
-                                        placeholder="Keterangan"
-                                        value={this.state.description}
-                                        onChange={event => this.setValue("description", event.target.value)}
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={this.state.description}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            this.setValue("description", data);
+                                        }}
                                     />
                                 </div>
                                 {this.state.data.map((value, index) => (
@@ -561,19 +563,19 @@ class Receipts extends PureComponent {
                                         </div>
                                         <div className="mt-3">
                                             <label htmlFor={`dose-${index}`} className="form-label">Dosis</label>
-                                            <textarea
-                                                rows="3"
-                                                className="form-control"
-                                                id={`dose-${index}`}
-                                                placeholder="Dosis"
-                                                value={value.dose}
-                                                onChange={event => this.setState(prevState => ({
-                                                    data: prevState.data.map(
-                                                        (value, idx) => (idx === index ? Object.assign(value, {
-                                                            dose: event.target.value
-                                                        }) : value)
-                                                    )
-                                                }))}
+                                            <CKEditor
+                                                editor={ClassicEditor}
+                                                data={value.dose}
+                                                onChange={(event, editor) => {
+                                                    const data = editor.getData();
+                                                    this.setState(prevState => ({
+                                                        data: prevState.data.map(
+                                                            (value, idx) => (idx === index ? Object.assign(value, {
+                                                                dose: data
+                                                            }) : value)
+                                                        )
+                                                    }));
+                                                }}
                                             />
                                         </div>
                                     </div>
