@@ -191,7 +191,9 @@ class Articles extends PureComponent {
                                         <div className="p-3 py-md-0">
                                             <p className="m-0">{this.getType(value.type)}</p>
                                             <p className="mt-1 mb-0">{value.title}</p>
-                                            <TextTruncate lineClamp={2} className="mt-2 mb-0">{value.description}</TextTruncate>
+                                            <TextTruncate lineClamp={2} className="mt-2 mb-0">
+                                                <div dangerouslySetInnerHTML={{__html: value.description}} />
+                                            </TextTruncate>
                                         </div>
                                     </div>
                                     <div className="col-12 col-md-3 d-flex align-items-center justify-content-end">
