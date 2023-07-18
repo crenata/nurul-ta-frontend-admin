@@ -21,6 +21,7 @@ class Medicines extends PureComponent {
         this.state = {
             medicines: [],
             page: 1,
+            search: "",
             isLastPage: false,
             isLoading: false,
             isEdit: false,
@@ -45,7 +46,7 @@ class Medicines extends PureComponent {
             this.setState({
                 isLoading: true
             }, () => {
-                Config.Axios.get(`medicine/get?page=${this.state.page}`).then(response => {
+                Config.Axios.get(`medicine/get?page=${this.state.page}&search=${this.state.search}`).then(response => {
                     if (response) {
                         const lastPage = response.data.data.last_page;
                         const isLastPage = lastPage === this.state.page;
@@ -181,6 +182,24 @@ class Medicines extends PureComponent {
                             this.setValue("isEdit", false);
                         }}
                     >Add</button>}
+                </div>
+                <div className="row mt-3">
+                    <div className="col-12 col-md-3 offset-md-9">
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            className="form-control"
+                            value={this.state.search}
+                            onChange={event => this.setState({
+                                search: event.target.value,
+                                page: 1,
+                                isLastPage: false,
+                                medicines: []
+                            }, () => {
+                                this.getData();
+                            })}
+                        />
+                    </div>
                 </div>
                 {this.state.medicines.length > 0 ?
                     <div className="">

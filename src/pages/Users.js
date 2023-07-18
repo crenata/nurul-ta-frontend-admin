@@ -25,6 +25,7 @@ class Users extends PureComponent {
         this.state = {
             users: [],
             page: 1,
+            search: "",
             isLastPage: false,
             isLoading: false,
             ...this.initialUser
@@ -44,7 +45,7 @@ class Users extends PureComponent {
             this.setState({
                 isLoading: true
             }, () => {
-                Config.Axios.get(`user/get/${this.isAdmin() ? "admin" : "officer"}?page=${this.state.page}`).then(response => {
+                Config.Axios.get(`user/get/${this.isAdmin() ? "admin" : "officer"}?page=${this.state.page}&search=${this.state.search}`).then(response => {
                     if (response) {
                         const lastPage = response.data.data.last_page;
                         const isLastPage = lastPage === this.state.page;
@@ -183,6 +184,24 @@ class Users extends PureComponent {
             <Template onScroll={() => this.getData()}>
                 <div className="d-flex align-items-center justify-content-between">
                     <h4 className="m-0">Users</h4>
+                </div>
+                <div className="row mt-3">
+                    <div className="col-12 col-md-3 offset-md-9">
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            className="form-control"
+                            value={this.state.search}
+                            onChange={event => this.setState({
+                                search: event.target.value,
+                                page: 1,
+                                isLastPage: false,
+                                users: []
+                            }, () => {
+                                this.getData();
+                            })}
+                        />
+                    </div>
                 </div>
                 {this.state.users.length > 0 ?
                     <div className="">
