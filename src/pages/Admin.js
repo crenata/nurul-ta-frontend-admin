@@ -326,11 +326,13 @@ class Admin extends PureComponent {
                                         onChange={event => this.setValue("type", event.target.value)}
                                     >
                                         <option selected>Choose</option>
-                                        <option value={Constants.AdminType.ADMINISTRATOR}>Administrator</option>
+                                        <option value={Constants.AdminType.ADMINISTRATOR}>Super Administrator</option>
                                         <option value={Constants.AdminType.MIDWAFE}>Bidan</option>
-                                        <option value={Constants.AdminType.PHARMACIST}>Farmasi</option>
-                                        <option value={Constants.AdminType.OFFICER}>Administrasi</option>
+                                        <option value={Constants.AdminType.PHARMACIST}>Apotek</option>
+                                        <option value={Constants.AdminType.OFFICER}>ADM</option>
                                         <option value={Constants.AdminType.CASHIER}>Kasir</option>
+                                        <option value={Constants.AdminType.ADMINISTRATOR_ADMIN}>Administrator ADM</option>
+                                        <option value={Constants.AdminType.ADMINISTRATOR_APOTEK}>Administrator Apotek</option>
                                     </select>
                                 </div>
                                 <div className="mt-3">
