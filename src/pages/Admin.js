@@ -159,15 +159,19 @@ class Admin extends PureComponent {
     getType(type) {
         switch (type) {
             case Constants.AdminType.ADMINISTRATOR:
-                return "Administrator";
+                return "Super Administrator";
             case Constants.AdminType.MIDWAFE:
                 return "Bidan";
             case Constants.AdminType.PHARMACIST:
-                return "Farmasi";
+                return "Apotek";
             case Constants.AdminType.OFFICER:
-                return "Administrasi";
+                return "ADM";
             case Constants.AdminType.CASHIER:
                 return "Kasir";
+            case Constants.AdminType.ADMINISTRATOR_ADMIN:
+                return "Administrator ADM";
+            case Constants.AdminType.ADMINISTRATOR_APOTEK:
+                return "Administrator Apotek";
             default:
                 return "Unknown";
         }
