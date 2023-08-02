@@ -36,6 +36,9 @@ class Medicines extends PureComponent {
     isAdmin() {
         return this.context.admin?.type === Constants.AdminType.ADMINISTRATOR;
     }
+    isAdminApotek() {
+        return this.context.admin?.type === Constants.AdminType.ADMINISTRATOR_APOTEK;
+    }
 
     isPharmacist() {
         return this.context.admin?.type === Constants.AdminType.PHARMACIST;
@@ -172,7 +175,7 @@ class Medicines extends PureComponent {
             <Template onScroll={() => this.getData()}>
                 <div className="d-flex align-items-center justify-content-between">
                     <h4 className="m-0">Medicines</h4>
-                    {this.isAdmin() &&
+                    {(this.isAdmin() && this.isAdminApotek()) &&
                     <button
                         className="btn btn-dark"
                         data-bs-toggle="modal"
@@ -241,7 +244,7 @@ class Medicines extends PureComponent {
                                                 />
                                             </svg>
                                         </button>
-                                        {this.isAdmin() &&
+                                        {(this.isAdmin() && this.isAdminApotek()) &&
                                         <button
                                             className="btn btn-danger ms-3"
                                             onClick={event => this.delete(value.id)}
@@ -282,7 +285,7 @@ class Medicines extends PureComponent {
                                 />
                             </div>
                             <div className="modal-body">
-                                {this.isAdmin() && <>
+                                {(this.isAdmin() && this.isAdminApotek()) && <>
                                     <div className="">
                                         <label htmlFor="code" className="form-label">Code</label>
                                         <input

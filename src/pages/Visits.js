@@ -35,6 +35,9 @@ class Visits extends PureComponent {
     isAdmin() {
         return this.context.admin?.type === Constants.AdminType.ADMINISTRATOR;
     }
+    isOfficer() {
+        return this.context.admin?.type === Constants.AdminType.OFFICER;
+    }
 
     getCategory() {
         Config.Axios.get("visit/get/category").then(response => {
@@ -61,7 +64,7 @@ class Visits extends PureComponent {
             this.setState({
                 isLoading: true
             }, () => {
-                Config.Axios.get(`visit/get/${this.isAdmin() ? "admin" : "officer"}?page=${this.state.page}`).then(response => {
+                Config.Axios.get(`visit/get/${this.isOfficer() ? "officer" : "admin"}?page=${this.state.page}`).then(response => {
                     if (response) {
                         const lastPage = response.data.data.last_page;
                         const isLastPage = lastPage === this.state.page;
@@ -211,7 +214,7 @@ class Visits extends PureComponent {
                                         <p className="m-0">{value.admin.name}</p>
                                     </div>
                                     <div className="col-12 col-md-2 d-flex align-items-center justify-content-end mt-3 mt-md-0">
-                                        {this.isAdmin() ? <>
+                                        {this.isAdmin() && <>
                                             <button
                                                 className="btn btn-dark"
                                                 data-bs-toggle="modal"
@@ -251,7 +254,8 @@ class Visits extends PureComponent {
                                                     />
                                                 </svg>
                                             </button>
-                                        </> : <>
+                                        </>}
+                                        {this.isOfficer() && <>
                                             <button
                                                 className="btn btn-dark"
                                                 onClick={event => this.approval(value.id)}

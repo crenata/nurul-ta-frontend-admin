@@ -3,7 +3,9 @@ const AdminType = {
     MIDWAFE: 2,
     PHARMACIST: 3,
     OFFICER: 4,
-    CASHIER: 5
+    CASHIER: 5,
+    ADMINISTRATOR_ADMIN: 6,
+    ADMINISTRATOR_APOTEK: 7
 };
 const ArticleType = {
     HOME: 1,

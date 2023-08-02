@@ -52,6 +52,28 @@ const AdminRole = (admin, menu) => {
                 default:
                     return false;
             }
+        case Constants.AdminType.ADMINISTRATOR_ADMIN:
+            switch (menu) {
+                case Config.Routers.Home:
+                    return true;
+                case Config.Routers.Users:
+                    return true;
+                case Config.Routers.Visits:
+                    return true;
+                case Config.Routers.MedicalRecords:
+                    return true;
+                default:
+                    return false;
+            }
+        case Constants.AdminType.ADMINISTRATOR_APOTEK:
+            switch (menu) {
+                case Config.Routers.Home:
+                    return true;
+                case Config.Routers.Medicines:
+                    return true;
+                default:
+                    return false;
+            }
         default:
             return false;
     }
