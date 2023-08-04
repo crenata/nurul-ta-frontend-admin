@@ -379,7 +379,7 @@ class MedicalRecords extends PureComponent {
                                                             </div>
                                                             <div className="mt-2">
                                                                 <p className="m-0">Keterangan :</p>
-                                                                <p className="m-0">{value.description}</p>
+                                                                <div dangerouslySetInnerHTML={{__html: value.description}} />
                                                             </div>
                                                         </div>
                                                         <div className="col-12 col-md-1 text-end mt-3 mt-md-0">
