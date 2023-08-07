@@ -37,7 +37,8 @@ class Users extends PureComponent {
     }
 
     isAdmin() {
-        return this.context.admin?.type === Constants.AdminType.ADMINISTRATOR;
+        return this.context.admin?.type === Constants.AdminType.ADMINISTRATOR ||
+            this.context.admin?.type === Constants.AdminType.ADMINISTRATOR_ADMIN;
     }
     isOfficer() {
         return this.context.admin?.type === Constants.AdminType.OFFICER;
