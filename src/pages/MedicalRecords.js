@@ -26,7 +26,9 @@ class MedicalRecords extends PureComponent {
             complaint: "",
             treatment_given: "",
             marital_status: "",
-            description: ""
+            description: "",
+            image: "",
+            image_preview: ""
         };
         this.state = {
             medical_records: [],
@@ -121,21 +123,22 @@ class MedicalRecords extends PureComponent {
             this.setState({
                 isLoading: true
             }, () => {
-                Config.Axios.post(`medical-record/${this.state.isEdit ? "edit" : "add"}`, {
-                    id: this.state.id,
-                    user_id: this.state.user.id,
-                    category_id: this.state.category_id,
-                    weight: this.state.weight,
-                    height: this.state.height,
-                    action_date: this.state.action_date,
-                    blood_pressure: this.state.blood_pressure,
-                    temperature: this.state.temperature,
-                    disease_history: this.state.disease_history,
-                    complaint: this.state.complaint,
-                    treatment_given: this.state.treatment_given,
-                    marital_status: this.state.marital_status,
-                    description: this.state.description
-                }).then(response => {
+                const formData = new FormData();
+                formData.append("id", this.state.id);
+                formData.append("user_id", this.state.user.id);
+                formData.append("category_id", this.state.category_id);
+                formData.append("weight", this.state.weight);
+                formData.append("height", this.state.height);
+                formData.append("action_date", this.state.action_date);
+                formData.append("blood_pressure", this.state.blood_pressure);
+                formData.append("temperature", this.state.temperature);
+                formData.append("disease_history", this.state.disease_history);
+                formData.append("complaint", this.state.complaint);
+                formData.append("treatment_given", this.state.treatment_given);
+                formData.append("marital_status", this.state.marital_status);
+                formData.append("description", this.state.description);
+                formData.append("image", this.state.image);
+                Config.Axios.post(`medical-record/${this.state.isEdit ? "edit" : "add"}`, formData).then(response => {
                     if (response) {
                         toast.success(`Successfully ${this.state.isEdit ? "edit" : "add"}ed!`);
                         this.setState({
@@ -201,12 +204,15 @@ class MedicalRecords extends PureComponent {
     reset() {
         this.setState({
             ...this.initialMedicalRecord
+        }, () => {
+            document.getElementById("image").value = "";
         });
     }
 
     setEdit(data) {
         this.setState({
             ...data,
+            image_preview: data.image,
             isEdit: true
         });
     }
@@ -220,6 +226,10 @@ class MedicalRecords extends PureComponent {
     setValue(field, value) {
         this.setState({
             [field]: value
+        }, () => {
+            if (field === "image") this.setState({
+                image_preview: URL.createObjectURL(value)
+            });
         });
     }
 
@@ -381,6 +391,10 @@ class MedicalRecords extends PureComponent {
                                                             <div className="mt-2">
                                                                 <p className="m-0">Keterangan :</p>
                                                                 <div dangerouslySetInnerHTML={{__html: value.description}} />
+                                                            </div>
+                                                            <div className="mt-2">
+                                                                <p className="m-0">Lampiran :</p>
+                                                                <img src={value.image} alt="Image" className="w-50 object-fit-cover"/>
                                                             </div>
                                                         </div>
                                                         <div className="col-12 col-md-1 text-end mt-3 mt-md-0">
@@ -561,6 +575,19 @@ class MedicalRecords extends PureComponent {
                                             this.setValue("description", data);
                                         }}
                                     />
+                                </div>
+                                <div className="mt-3">
+                                    <label htmlFor="image" className="form-label">Image</label>
+                                    <input
+                                        type="file"
+                                        className="form-control"
+                                        id="image"
+                                        placeholder="Image"
+                                        accept="image/*"
+                                        onChange={event => this.setValue("image", event.target.files[0])}
+                                    />
+                                    {!IsEmpty(this.state.image_preview) &&
+                                    <img src={this.state.image_preview} alt="Preview" className="w-100 object-fit-cover" />}
                                 </div>
                             </div>
                             <div className="modal-footer">
