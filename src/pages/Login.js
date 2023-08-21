@@ -12,7 +12,7 @@ class Login extends PureComponent {
         this.state = {
             email: "",
             password: "",
-            is_verified: true
+            is_verified: false
         };
     }
 

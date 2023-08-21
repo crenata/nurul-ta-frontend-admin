@@ -6,7 +6,6 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Articles from "./pages/Articles";
 import Admin from "./pages/Admin";
-import Template from "./template/Template";
 import Categories from "./pages/Categories";
 import Activities from "./pages/Activities";
 import Users from "./pages/Users";
@@ -14,13 +13,14 @@ import Medicines from "./pages/Medicines";
 import Visits from "./pages/Visits";
 import MedicalRecords from "./pages/MedicalRecords";
 import Receipts from "./pages/Receipts";
+import Dashboard from "./pages/Dashboard";
 
 class AppRoutes extends PureComponent {
     render() {
         return (
             <BrowserRouter>
                 <Routes>
-                    <Route path={Config.Routers.Home} element={<RouteElement component={Template} />} />
+                    <Route path={Config.Routers.Home} element={<RouteElement component={Dashboard} />} />
                     <Route path={Config.Routers.Login} element={<RouteElement component={Login} />} />
                     <Route path={Config.Routers.Articles} element={<RouteElement component={Articles} />} />
                     <Route path={Config.Routers.Categories} element={<RouteElement component={Categories} />} />
